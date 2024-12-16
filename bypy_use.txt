@@ -1,0 +1,27 @@
+#################百度云盘 ubuntu使用###################
+#安装bypy：打开命令行或终端，输入以下命令来安装bypy
+pip install bypy
+#如果使用的是Linux系统，并且系统中同时存在Python2和Python3，可能需要使用pip3命令来安装bypy：
+pip3 install bypy
+
+#首次授权：首次使用bypy时，需要进行授权。在命令行或终端中输入以下命令：
+bypy info
+#然后，根据提示打开浏览器，访问提供的链接，获取授权码，并复制粘贴回命令行或终端以完成授权过程。
+
+#列出文件：使用bypy list命令可以列出百度网盘指定目录下的文件。例如，列出/apps/bypy目录下的文件：
+bypy list /apps/bypy
+#上传文件：使用bypy upload命令可以将本地文件上传到百度网盘。例如，将本地文件file.txt上传到远程路径/remote/path/：
+bypy upload your/local/file.txt /remote/path/
+#下载文件：使用bypy downfile命令可以从百度网盘下载文件到本地。例如，将远程文件/remote/file.txt下载到本地路径./local/downloaded-file.txt：
+bypy downfile /remote/file.txt ./local/downloaded-file.txt
+#同步文件：使用bypy syncup和bypy syncdown命令可以将本地目录与百度网盘保持同步。例如，将本地目录local_dir同步至云端路径/remote/path/：
+bypy syncup local_dir /remote/path/
+反之，将云端路径/remote/path/的文件同步到本地目录local_dir/：
+bypy syncdown /remote/path/ local_dir/
+
+##Owen Wang's style in use######
+#列出文件：使用bypy list命令可以列出百度网盘指定目录下的文件。例如，列出/apps/bypy目录下的文件：
+bypy list 
+#下载数据。例如，将远程文件下载到本地路径
+bypy downfile GSE151202_RAW.tar /xywhd/
+bypy downfile GSE250414_RAW.tar /xywhd/
