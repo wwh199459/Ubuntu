@@ -1,0 +1,49 @@
+##########################Ubuntu硬盘挂载############################
+#进入root挂载
+su -
+#1查看连接的所有硬盘情况：
+fdisk -l
+##也可以指定看某块
+fdisk -l /dev/sda
+
+#2、分区
+fdisk /dev/sda
+##依次选n add a new partition；回车 w保存
+
+#3、再次查看分区情况
+fdisk -l /dev/sda
+
+#4、格式化
+mkfs.ext4 /dev/sda1
+
+##如果Error, /dev/sda2 is mounted; will not make a filesystem here!
+umount /dev/sda1
+
+mkfs.ext4 /dev/sda1
+
+#5、挂载硬盘到/xywha
+mount /dev/sda1 /xywha
+
+
+
+#设置下次开机自动挂载
+#1、修改配置文件：
+vim /etc/fstab
+#i,编辑；:wq保存
+/dev/sda1       /xywha  ext4    defaults        0 0
+
+#2、重启后查看挂载情况，显示已经挂载了：
+mount
+
+##退出root
+exit
+
+#Tips
+######################查看文件夹所属####################
+#查看当前目录下文件和目录的详细信息
+ll
+# 或
+ls -al
+
+#更改文件夹属性，进入root状态
+chmod 777 /xywha
